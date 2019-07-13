@@ -8,14 +8,32 @@
 import './bootstrap';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-
+import VueRouter from 'vue-router';
 //Route information for Vue Router
-import Routes from '@/js/routes.js';
 
-//Component File
-import App from '@/js/views/App';
+import Home from '@/js/components/Home';
+import About from '@/js/components/About';
 
-Vue.use(Vuetify);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    base: 'SJ1.0',
+    linkActiveClass: 'active',
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: About
+        },
+    ]
+});
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -25,8 +43,7 @@ Vue.use(Vuetify);
 
 const app = new Vue({
     el: '#app',
-    router: Routes,
-    render: h =>h(App),
+    router:router,
 });
 
 export default app;

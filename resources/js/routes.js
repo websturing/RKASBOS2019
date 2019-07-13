@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode: 'history',
-    base: '/project/MJS_OPS/',
+
     linkActiveClass: 'active',
     routes: [
         {
@@ -17,7 +17,7 @@ const router = new VueRouter({
             component: Home
         },
         {
-            path: '/about',
+            path: 'about',
             name: 'about',
             component: About
         },

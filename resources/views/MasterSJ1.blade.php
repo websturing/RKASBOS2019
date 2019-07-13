@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="csrf-token" content="{{csrf_token()}}">
 	<title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
 
 	<!-- Global stylesheets -->
@@ -43,7 +44,13 @@
 		<!-- Main content -->
 		<div class="content-wrapper">
 			<div class="content">
-                <div id="app"></div>
+                <div id="app">
+                    <router-link to="/about" class="nav-link">
+                              <i class="icon-home4"></i>
+                               <span> About </span>
+                        </router-link>
+                     <router-view></router-view>
+                </div>
 			</div>
 		</div>
 	</div>
