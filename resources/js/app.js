@@ -9,13 +9,16 @@ import './bootstrap';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
+import vueHeadful from 'vue-headful';
 //Route information for Vue Router
 
 import Home from '@/js/components/Home';
 import About from '@/js/components/About';
 import Dashboard from '@/js/components/Dashboard';
 import Breadcums from '@/js/components/template/breadcums';
-Vue.use(VueRouter);
+Vue.component('vue-headful', vueHeadful);
+
+Vue.use(VueRouter,vueHeadful);
 
 const UrlBaseVue = 'SJ1.0';
 
@@ -37,6 +40,9 @@ const router = new VueRouter({
         {
             path: '/dashboard',
             name: 'Dashboard',
+            meta:{
+              title: "title"  
+            },
             components: {
                 default: Dashboard,
             },

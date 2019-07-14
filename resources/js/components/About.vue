@@ -1,6 +1,13 @@
 <template>
     
      <div>
+           <div v-for="title in titles">
+              <vue-headful
+                :title="title.page"
+                description="Description from vue-headful"
+                />
+          </div>
+          
            <Breadcums v-bind:titles="titles" 
            /></Breadcums>
             
@@ -49,7 +56,7 @@
             return {
                 msg : "About",
                 titles : [
-                    {name: "About", subtitle: ""}
+                    {name: "About", subtitle: "", page: "About Page"}
                 ],
                
             }

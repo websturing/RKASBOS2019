@@ -1,5 +1,11 @@
 <template>
        <div>
+          <div v-for="title in titles">
+              <vue-headful
+                :title="title.page"
+                description="Description from vue-headful"
+                />
+          </div>
            <Breadcums v-bind:titles="titles"
                       v-bind:permohonanjumlah="permohonanjumlah" 
            /></Breadcums>
@@ -38,6 +44,7 @@
 
 
 <script>
+   
     import Breadcums from '@/js/components/template/breadcums';
     import Sidebar from '@/js/components/template/sidebar';
     export default {
@@ -48,8 +55,9 @@
         data () {
             return {
                 msg : "andi",
+                title: 'Dashboard',
                 titles : [
-                    {name: "Dashboard", subtitle: "Front Office"}
+                    {name: "Dashboard", subtitle: "Front Office", page:"Dashboard Page"}
                 ],
                 permohonanjumlah :[
                      {name: "online", jumlah: 10},
