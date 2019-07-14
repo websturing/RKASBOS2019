@@ -39,6 +39,7 @@
    @include('limitless/template/header_main')
    <div id="app">
         <router-view></router-view>
+         <vue-progress-bar></vue-progress-bar>
 	    <div class="navbar navbar-expand-lg navbar-light navbar-slide-bottom fixed-bottom">
 		<div class="text-center d-lg-none w-100">
 			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">

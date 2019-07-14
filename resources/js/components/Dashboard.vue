@@ -68,6 +68,7 @@
         components:{
             Breadcums,
             Sidebar
-        }
+        },
+        
     }
 </script>
