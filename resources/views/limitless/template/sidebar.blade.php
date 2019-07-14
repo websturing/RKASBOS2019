@@ -53,13 +53,10 @@
                 <ul class="nav nav-sidebar" data-nav-type="accordion">
                     <li class="nav-item-header mt-0"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">
-                            <i class="icon-home4"></i>
-                            <span>
-                                Dashboard
-                                <span class="d-block font-weight-normal opacity-50">No active orders</span>
-                            </span>
-                        </a>
+                        <router-link :to="{ name: 'Dashboard'}" class="nav-link">
+                              <i class="icon-home4"></i>
+                               <span> Dashboard </span>
+                        </router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="home" class="nav-link">

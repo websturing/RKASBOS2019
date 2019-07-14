@@ -36,29 +36,10 @@
 </head>
 
 <body class="navbar-top navbar-bottom">
-    @include('limitless/template/header_main')
-    @include('limitless/template/header')
-
-	<div class="page-content pt-0">
-        @include('limitless/template/sidebar')
-		<!-- Main content -->
-		<div class="content-wrapper">
-			<div class="content">
-                <div id="app">
-                    <router-link to="/about" class="nav-link">
-                              <i class="icon-home4"></i>
-                               <span> About </span>
-                        </router-link>
-                     <router-view></router-view>
-                </div>
-			</div>
-		</div>
-	</div>
-	<!-- /page content -->
-
-
-	<!-- Footer -->
-	<div class="navbar navbar-expand-lg navbar-light navbar-slide-bottom fixed-bottom">
+   @include('limitless/template/header_main')
+   <div id="app">
+        <router-view></router-view>
+	    <div class="navbar navbar-expand-lg navbar-light navbar-slide-bottom fixed-bottom">
 		<div class="text-center d-lg-none w-100">
 			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
 				<i class="icon-unfold mr-2"></i>
@@ -78,8 +59,7 @@
 			</ul>
 		</div>
 	</div>
-	<!-- /footer -->
-    
+    </div>
     <script src="public/js/app.js"></script>
 </body>
 </html>

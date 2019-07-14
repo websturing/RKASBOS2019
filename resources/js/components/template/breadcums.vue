@@ -1,9 +1,10 @@
-<div class="page-header">
+<template>
+    <div class="page-header">
 		<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
 			<div class="d-flex">
 				<div class="breadcrumb">
 					<span class="breadcrumb-item active">
-				        {{msg}}
+				       
 					</span>
 				</div>
 
@@ -37,16 +38,40 @@
 
 		<div class="page-header-content header-elements-md-inline">
 			<div class="page-title d-flex">
-				<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Navbars</span> - {{msg}}</h4>
-				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+			
+			<div v-for="title in titles">
+				<h4>{{title.name}}</h4>
+				<h6>{{title.subtitle}}</h6>
+            </div>
+				
 			</div>
 
 			<div class="header-elements d-none mb-3 mb-md-0">
 				<div class="d-flex justify-content-center">
-					<a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-indigo-400"></i> <span>Statistics</span></a>
-					<a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-indigo-400"></i> <span>Invoices</span></a>
-					<a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-indigo-400"></i> <span>Schedule</span></a>
+				 <div v-for="jumlahD in permohonanjumlah">
+				     <a href="#" class="btn btn-link btn-float text-default">
+                         <span class="text-bold">{{jumlahD.jumlah}}</span> 
+                         <span>{{jumlahD.name}}</span>
+				     </a>
+				 </div>
+					
+					
 				</div>
 			</div>
 		</div>
 	</div>
+    
+</template>
+
+<script>
+    export default {
+        mounted() {
+            console.log('Dashboard Component mounted.');
+            
+        },
+        props:{
+            'titles' : Array,
+            'permohonanjumlah' : null
+        }
+    }
+</script>

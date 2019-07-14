@@ -1,7 +1,7 @@
 <template>
-    
-     <div>
-           <Breadcums v-bind:titles="titles" 
+       <div>
+           <Breadcums v-bind:titles="titles"
+                      v-bind:permohonanjumlah="permohonanjumlah" 
            /></Breadcums>
             
             
@@ -41,17 +41,20 @@
     import Breadcums from '@/js/components/template/breadcums';
     import Sidebar from '@/js/components/template/sidebar';
     export default {
+    
         mounted() {
-            console.log('About Component mounted.')
-        }
-        ,
-         data () {
+            console.log('Dashboard Component mounted.');  
+        },
+        data () {
             return {
-                msg : "About",
+                msg : "andi",
                 titles : [
-                    {name: "About", subtitle: ""}
+                    {name: "Dashboard", subtitle: "Front Office"}
                 ],
-               
+                permohonanjumlah :[
+                     {name: "online", jumlah: 10},
+                     {name: "walkin", jumlah: 50}
+                ]
             }
         },
         components:{

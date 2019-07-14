@@ -13,12 +13,15 @@ import VueRouter from 'vue-router';
 
 import Home from '@/js/components/Home';
 import About from '@/js/components/About';
-
+import Dashboard from '@/js/components/Dashboard';
+import Breadcums from '@/js/components/template/breadcums';
 Vue.use(VueRouter);
+
+const UrlBaseVue = 'SJ1.0';
 
 const router = new VueRouter({
     mode: 'history',
-    base: 'SJ1.0',
+    base: UrlBaseVue,
     linkActiveClass: 'active',
     routes: [
         {
@@ -28,8 +31,18 @@ const router = new VueRouter({
         },
         {
             path: '/about',
-            name: 'about',
+            name: 'About',
             component: About
+        },
+        {
+            path: '/dashboard',
+            name: 'Dashboard',
+            components: {
+                default: Dashboard,
+            },
+            props: {
+                default: true,
+              }
         },
     ]
 });
