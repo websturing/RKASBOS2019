@@ -37,9 +37,11 @@
 		</div>
 
 		<div class="page-header-content header-elements-md-inline">
+		 <slot name='spiner'></slot>
 			<div class="page-title d-flex">
 			
 			<div v-for="title in titles">
+			
 				<h4>{{title.name}}</h4>
 				<h6>{{title.subtitle}}</h6>
             </div>
@@ -70,7 +72,7 @@
             
         },
         props:{
-            'titles' : Array,
+            'titles' : null,
             'permohonanjumlah' : null
         }
     }

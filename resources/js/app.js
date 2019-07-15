@@ -12,6 +12,8 @@ import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import vueHeadful from 'vue-headful';
 import VueProgressBar from 'vue-progressbar';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 //Route information for Vue Router
 
@@ -19,9 +21,14 @@ import Home from '@/js/components/Home';
 import About from '@/js/components/About';
 import Dashboard from '@/js/components/Dashboard';
 import Breadcums from '@/js/components/template/breadcums';
+import urlBase from '@/js/setting/urlBase';
 
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
+    
 const optionsVueProgressBar = {
-  color: '#bffaf3',
+  color: '#FC6600',
   failedColor: '#874b4b',
   thickness: '5px',
   transition: {
@@ -37,12 +44,13 @@ const optionsVueProgressBar = {
 Vue.component('vue-headful', vueHeadful);
 Vue.use(VueRouter,vueHeadful);
 Vue.use(VueProgressBar,optionsVueProgressBar);
+Vue.use(VueAxios,axios);
 
 const UrlBaseVue = 'SJ1.0';
 
 const router = new VueRouter({
     mode: 'history',
-    base: UrlBaseVue,
+    base: urlBase.urlBase,
     linkActiveClass: 'active',
     routes: [
         {

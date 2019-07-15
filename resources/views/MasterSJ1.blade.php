@@ -30,14 +30,15 @@
 
 	<script src="public/assets/js/app.js"></script>
 	<script src="public/global_assets/js/demo_pages/navbar_hideable.js"></script>
-	<script src="public/global_assets/js/demo_pages/navbar_multiple_sticky.js"></script>
+	
+	<script src="public/global_assets/js/demo_pages/components_collapsible.js"></script>
 	<!-- /theme JS files -->
 
 </head>
 
 <body class="navbar-top navbar-bottom">
-   @include('limitless/template/header_main')
    <div id="app">
+        @include('limitless/template/header_main')
         <router-view></router-view>
          <vue-progress-bar></vue-progress-bar>
 	    <div class="navbar navbar-expand-lg navbar-light navbar-slide-bottom fixed-bottom">
