@@ -1,23 +1,27 @@
 <template>
        <div>
+       
           <div v-for="title in titles">
               <vue-headful
                 :title="title.page"
                 description="Description from vue-headful"
                 />
           </div>
-          
+           
            <Breadcums v-bind:titles="titles"
                       v-bind:permohonanjumlah="permohonanjumlah"
            >
            <LoadingComp v-bind:loading="loading" slot="spiner"></LoadingComp>
            </Breadcums>
           
-      	<div class="page-content pt-0">
-                <Sidebar/>
+      	<div class="page-content pt-0" >
+            <Sidebar/>
+           
+        
            
             <div class="content-wrapper">
                 <div class="content">
+                      <section id="example-content">
                       <div class="card">
 							<div class="card-header header-elements-inline">
 								<h6 class="card-title">CARI DAFTAR PERIZINAN / NONPERIZINAN</h6>
@@ -33,10 +37,11 @@
 
 							<div class="card-body py-0">
 								<div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" placeholder="Ketik Nama izin / nonizin">
-                                        <div class="w-75 mx-auto mb-3"></div>
-                                    </div>
+                                    <autocomplate 
+                                         :izinlist="izinlist" 
+                                         filterby="nama_izin"
+                                         @atchange="atchange">    
+                                    </autocomplate>
 								</div>
 							</div>
 
@@ -65,145 +70,37 @@
                             </ul>
 				         <div class="tab-content">
 				          
-								<div class="tab-pane active fade show" id="messages-tue">
-								 <input type="text"  v-model="searchPrm" class="form-control" @keyup="SrcPrm" placeholder="ketik Nama perusahaan / Nama izin / opd">
-                                 <br/>
-                                  <div class="card">
-                                    <div class="card-body">
-                                        <ul class="media-list">
-                                        <center>
-                                           <LoadingComp v-bind:loading="loading" slot="spiner"></LoadingComp>    
-                                        </center>
-                                            
-                                      
-                                            
-                                                
-										<li v-for="(a,index) in permohonanmasuk.data" class="media">
-                                      
-							
-										        										    
-											<div class="mr-3">
-												<img v-bind:src="'public/global_assets/images/placeholders/' + a.icon"  width="36" height="36" alt="">
-											</div>
-
-											<div class="media-body">
-												<div class="d-flex justify-content-between">
-											
-												
-													<a href="#">{{a.perusahaanNama}}</a>
-													<span class="font-size-sm text-muted">
-													   {{a.permohonan.create_at}}
-													</span>
-												</div>
-												{{a.permohonan.getizin.nama_izin}}
-												 <br/>
-												<span class='text-bold text-warning'>{{a.permohonan.getopd.opd}}</span>
-												
-													
-											</div>
-											
-											
-										</li>
-									</ul>
-                                    </div>
-                                    <div class="card-footer">
-                                        <pagination :data="permohonanmasuk" @pagination-change-page="getResultspermohonanmasuk">
-                                        </pagination>
-                                    </div>
-                                    </div>
-									
-								
+								<div class="tab-pane active show fade" id="messages-tue">
+								 
+									<permohonanMasuk 
+									        v-bind:permohonanmasuk="permohonanmasuk"  
+                                            :SrcPrm="SrcPrm"
+                                            :getResultspermohonanmasuk="getResultspermohonanmasuk"       
+                                    >
+									           
+								    </permohonanMasuk>
+								    
 								
 								
 									
 								</div>
 								<div class="tab-pane fade" id="messages-mon">
-									<ul class="media-list">
-										<li class="media">
-											<div class="mr-3">
-												<img src="public/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" width="36" height="36" alt="">
-											</div>
-
-											<div class="media-body">
-												<div class="d-flex justify-content-between">
-													<a href="#">Isak Temes</a>
-													<span class="font-size-sm text-muted">Tue, 19:58</span>
-												</div>
-
-												Reasonable palpably rankly expressly grimy...
-											</div>
-										</li>
-
-										<li class="media">
-											<div class="mr-3">
-												<img src="public/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" width="36" height="36" alt="">
-											</div>
-
-											<div class="media-body">
-												<div class="d-flex justify-content-between">
-													<a href="#">Vittorio Cosgrove</a>
-													<span class="font-size-sm text-muted">Tue, 16:35</span>
-												</div>
-
-												Arguably therefore more unexplainable fumed...
-											</div>
-										</li>
-
-										<li class="media">
-											<div class="mr-3">
-												<img src="public/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" width="36" height="36" alt="">
-											</div>
-
-											<div class="media-body">
-												<div class="d-flex justify-content-between">
-													<a href="#">Hilary Talaugon</a>
-													<span class="font-size-sm text-muted">Tue, 12:16</span>
-												</div>
-
-												Nicely unlike porpoise a kookaburra past more...
-											</div>
-										</li>
-
-										<li class="media">
-											<div class="mr-3">
-												<img src="public/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" width="36" height="36" alt="">
-											</div>
-
-											<div class="media-body">
-												<div class="d-flex justify-content-between">
-													<a href="#">Bobbie Seber</a>
-													<span class="font-size-sm text-muted">Tue, 09:20</span>
-												</div>
-
-												Before visual vigilantly fortuitous tortoise...
-											</div>
-										</li>
-
-										<li class="media">
-											<div class="mr-3">
-												<img src="public/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" width="36" height="36" alt="">
-											</div>
-
-											<div class="media-body">
-												<div class="d-flex justify-content-between">
-													<a href="#">Walther Laws</a>
-													<span class="font-size-sm text-muted">Tue, 03:29</span>
-												</div>
-
-												Far affecting more leered unerringly dishonest...
-											</div>
-										</li>
-									</ul>
+									<peropd :peropd="peropd"
+									        :SrcPeropd="SrcPeropd"
+									></peropd>
 								</div>
 
 								<div class="tab-pane fade" id="messages-fri">
-									
+									<h1 class="text-center">Comming Soon</h1>
 								</div>
 				           
 						</div>
+                  </section>
                 </div>
             </div>
+            
         </div>
+          
         </div>
 </template>
 
@@ -214,6 +111,9 @@
     import Sidebar from '@/js/components/template/sidebar';
     import urlBase from '@/js/setting/urlBase';
     import LoadingComp from '@/js/components/template/loadingComponent';
+    import permohonanMasuk from '@/js/components/permohonan_masuk';
+    import peropd from '@/js/components/peropd';
+    import autocomplate from '@/js/components/autocomplate';
     
     
     export default {
@@ -230,6 +130,8 @@
                      {name: "walkin", jumlah: 50}
                 ],
                 permohonanmasuk : {},
+                peropd:{},
+                izinlist:{}
             }
         },
         mounted() {
@@ -239,12 +141,15 @@
         created() {
             this.fetchData();
             this.titlesData();
+            this.peropdData();
+            this.listIzinData();
         },
         methods: {
-            SrcPrm(){
-                console.log('searching ... ='+ this.searchPrm);
+           
+            SrcPrm(searchPrm){
+                console.log('searching ... ='+ searchPrm);
                 axios
-                    .get(urlBase.urlAxios+'/permohonan/data?q=searching&data='+this.searchPrm)
+                    .get(urlBase.urlAxios+'/permohonan/data?q=searching&data='+searchPrm)
                     .then(response => (
                         this.loading = false,
                         this.permohonanmasuk = response.data,
@@ -258,7 +163,20 @@
 					this.permohonanmasuk = response.data;
 				});
             },
-            
+            SrcPeropd(SrcPeropd){
+                console.log('searching ... ='+ SrcPeropd);
+                axios
+                    .get(urlBase.urlAxios+'/permohonan/peropd?q=searching&data='+SrcPeropd)
+                    .then(response => (
+                        this.loading = false,
+                        this.peropd = response.data,
+                        console.log(response.data)
+                    ));
+                
+            },
+            atchange(customer){
+                console.log(customer);
+            }, 
             fetchData() {
                 this.loading = true;
                 axios
@@ -278,12 +196,33 @@
                         this.titles = response.data,
                         console.log(response.data)
                     ));
+            },
+            peropdData() {
+                this.loading = true;
+                axios
+                    .get(urlBase.urlAxios+'/permohonan/peropd')
+                    .then(response => (
+                        this.loading = false,
+                        this.peropd = response.data,
+                        console.log(response.data)
+                    ));
+            },
+            listIzinData(){
+                axios
+                    .get(urlBase.urlAxios+'/izin/list')
+                    .then(response => (
+                        this.izinlist = response.data,
+                        console.log("izin List :"+response.data)
+                    ));
             }
         },
         components:{
             Breadcums,
             Sidebar,
-            LoadingComp
+            LoadingComp,
+            permohonanMasuk,
+            peropd,
+            autocomplate
         },
     
         

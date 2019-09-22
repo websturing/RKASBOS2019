@@ -14,14 +14,27 @@ import vueHeadful from 'vue-headful';
 import VueProgressBar from 'vue-progressbar';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import Vuelidate from 'vuelidate';
+import VueNoty from 'vuejs-noty';
+import VuejsDialog from "vuejs-dialog";
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
+import vueXlsxTable from 'vue-xlsx-table'
+// Tell Vue to install the plugin.
+
 
 //Route information for Vue Router
-
-import Home from '@/js/components/Home';
-import About from '@/js/components/About';
 import Dashboard from '@/js/components/Dashboard';
 import Breadcums from '@/js/components/template/breadcums';
+import Sekolah from '@/js/components/sekolah/sekolah';
+
+/* USERS */
+import usersRegistrasi from '@/js/components/users/registrasi';
+
+
+
 import urlBase from '@/js/setting/urlBase';
+import Affix from 'vue-affix';
+
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 
@@ -45,7 +58,11 @@ Vue.component('vue-headful', vueHeadful);
 Vue.use(VueRouter,vueHeadful);
 Vue.use(VueProgressBar,optionsVueProgressBar);
 Vue.use(VueAxios,axios);
-
+Vue.use(Affix);
+Vue.use(Vuelidate);
+Vue.use(VueNoty);
+Vue.use(VuejsDialog)
+Vue.use(vueXlsxTable, {rABS: false})
 const UrlBaseVue = 'SJ1.0';
 
 const router = new VueRouter({
@@ -53,16 +70,6 @@ const router = new VueRouter({
     base: urlBase.urlBase,
     linkActiveClass: 'active',
     routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/about',
-            name: 'About',
-            component: About
-        },
         {
             path: '/dashboard',
             name: 'Dashboard',
@@ -76,6 +83,17 @@ const router = new VueRouter({
                 default: true,
               }
         },
+        {
+            path: '/sekolah',
+            name: 'Sekolah',
+            components: {
+                default: Sekolah,
+            },
+            props: {
+                default: true,
+              }
+        },
+        
     ]
 });
 

@@ -1,6 +1,7 @@
 <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md align-self-start navbar-sticky">
   
     <!-- Sidebar mobile toggler -->
+<!--
     <div class="sidebar-mobile-toggler text-center">
         <a href="#" class="sidebar-mobile-main-toggle">
             <i class="icon-arrow-left8"></i>
@@ -11,6 +12,7 @@
             <i class="icon-screen-normal"></i>
         </a>
     </div>
+-->
     <!-- /sidebar mobile toggler -->
 
 

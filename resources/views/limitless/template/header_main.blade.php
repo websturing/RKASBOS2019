@@ -1,8 +1,8 @@
 <!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark fixed-top navbar-slide-top">
 		<div class="navbar-brand wmin-200">
-			<a href="index.html" class="d-inline-block">
-				<img src="../../../../global_assets/images/logo_light.png" alt="">
+			<a href="{{url('dashboard')}}" class="d-inline-block">
+				<img src="{{url('public/global_assets/images/logo_light.png')}}" alt="">
 			</a>
 		</div>
 

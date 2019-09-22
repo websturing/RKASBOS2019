@@ -1,16 +1,7 @@
 <template>
     
      <div>
-           <div v-for="title in titles">
-              <vue-headful
-                :title="title.page"
-                description="Description from vue-headful"
-                />
-          </div>
-          
-           <Breadcums v-bind:titles="titles" 
-           /></Breadcums>
-            
+         <Breadcums></Breadcums>
             
       	<div class="page-content pt-0">
                 <Sidebar/>
@@ -32,7 +23,20 @@
                         </div>
 
                         <div class="card-body">
-                           {{msg}}
+                           <input list="pasta" autocomplete=off class="form-control">
+
+                                <datalist id="pasta">
+                                    <option value="afriandi">Bavette</option>
+                                    <option>Cannelloni</option>
+                                    <option>Fiorentine</option>
+                                    <option>Gnocchi</option>
+                                    <option>Pappardelle</option>
+                                    <option>Penne lisce</option>
+                                    <option>Pici</option>
+                                    <option>Rigatoni</option>
+                                    <option>Spaghetti</option>
+                                    <option>Tagliatelle</option>
+                                </datalist>
 
 
                         </div>
@@ -50,11 +54,10 @@
     export default {
         mounted() {
             console.log('About Component mounted.')
-        }
-        ,
-         data () {
+        },
+        data () {
             return {
-                msg : "About",
+                msg : this.$route.params.id,
                 titles : [
                     {name: "About", subtitle: "", page: "About Page"}
                 ],
@@ -67,3 +70,5 @@
         }
     }
 </script>
+
+

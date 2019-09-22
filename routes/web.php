@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('{path}', function () {
-    return view('MasterSJ1');
-})->where( 'path', '.*' );
+
+Route::GET('login', 'appControl@login');
+Route::POST('loginSubmit', 'appControl@submit')->name('login.submit');
+
+Route::group(['middleware' => ['cekstatus']], function () {
+    
+    Route::GET('form/{permohonan}/{path}', 'appControl@masterLimitles');
+    Route::GET('persyaratan/pdf/izin', 'izinControl@pdfIzin');
+    Route::GET('permohonan/{permohonan}/{path}', 'appControl@masterLimitles')->name("prs.permohonan");
+    Route::GET('{path}', 'appControl@masterLimitles')->where( 'path', '.*' );
+});

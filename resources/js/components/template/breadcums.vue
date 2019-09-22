@@ -41,9 +41,11 @@
 			<div class="page-title d-flex">
 			
 			<div v-for="title in titles">
-			
-				<h4>{{title.name}}</h4>
-				<h6>{{title.subtitle}}</h6>
+			   
+				<h4>
+				    <slot name="imagesDetail"></slot>    {{title.name}}
+				</h4>
+				<h6 class="text-bold text-warning">{{title.subtitle}}</h6>
             </div>
 				
 			</div>
@@ -74,6 +76,7 @@
         props:{
             'titles' : null,
             'permohonanjumlah' : null
-        }
+        },
+        
     }
 </script>
