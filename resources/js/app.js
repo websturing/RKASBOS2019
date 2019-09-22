@@ -26,6 +26,8 @@ import vueXlsxTable from 'vue-xlsx-table'
 import Dashboard from '@/js/components/Dashboard';
 import Breadcums from '@/js/components/template/breadcums';
 import Sekolah from '@/js/components/sekolah/sekolah';
+import SekolahForm from '@/js/components/sekolah/form';
+
 
 /* USERS */
 import usersRegistrasi from '@/js/components/users/registrasi';
@@ -93,6 +95,17 @@ const router = new VueRouter({
                 default: true,
               }
         },
+        {
+            path: '/sekolah/form',
+            name: 'SekolahForm',
+            components: {
+                default: SekolahForm,
+            },
+            props: {
+                default: true,
+              }
+        },
+        
         
     ]
 });
