@@ -1,7 +1,6 @@
 <template>
 <div>
    <loading v-show="show.Loading"></loading>
-    <div v-show="show.SekolahTable">
    <!--- header breadcums -->
    <div class="page-header">
 		<div class="page-header-content header-elements-md-inline">
@@ -31,11 +30,15 @@
                        <div class="form-group row">
                             <div class="col-md-4">
                                     <label>Nama</label>
-                                    <input type="text" class="form-control" placeholder="Nama Sekolah">
+                                    <input type="text" class="form-control" placeholder="Nama Sekolah"
+                                    v-model="$v.sekolah.nama.$model"
+                                    v-bind:class="VClass($v.sekolah.nama)">
                                 </div>
                             <div class="col-md-2">
                                     <label>Status</label>
-                                    <select class="form-control" placeholder="Negri / Status">
+                                    <select class="form-control" placeholder="Negri / Status"
+                                        v-model="$v.sekolah.status.$model"
+                                        v-bind:class="VClass($v.sekolah.status)">
                                          <option value="">-- status --</option>
                                          <option value="Negeri">Negri</option>
                                          <option value="Swasta">Swasta</option>
@@ -43,7 +46,9 @@
                                 </div>
                             <div class="col-md-3">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email Sekolah">
+                                    <input type="text" class="form-control" placeholder="Email Sekolah"
+                                    v-model="$v.sekolah.email.$model"
+                                    v-bind:class="VClass($v.sekolah.email)">
                                 </div>
                             <div class="col-md-3">
                                     <label>Website</label>
@@ -120,18 +125,23 @@
                    </fieldset>
                    </div>
                    <div class="card-footer">
-                       <button type="button" class="btn btn-primary btn-sm">Simpan</button>
+                       <button type="button" class="btn btn-primary btn-sm" @click="submit()">Simpan</button>
+                       <pre>{{$v}}</pre>
                    </div>
                    </div>
                 </div>
             </div>
             
-        </div>            
-</div>
-   
+        </div>              
 </div>
 </template>
+<style>
+.error{
+    border-color: red !important;
+    background: #FDD !important;
+}
 
+</style>
 <script>
   
     import Breadcums from '@/js/components/template/breadcums';
@@ -139,7 +149,9 @@
     import urlBase from '@/js/setting/urlBase';
     import LoadingComp from '@/js/components/template/loadingComponent';
     import loading from '@/js/components/template/loading';
+    import 'vuejs-noty/dist/vuejs-noty.css';
     
+    import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
     export default{
         mounted(){
             console.log('Sekolah')
@@ -163,7 +175,26 @@
                 disabled:{
                     hapusImportBtn : true,
                     prosesImportBtn : false
-                }
+                },
+                sekolah:{
+                  nama : null,  
+                  status : null,  
+                  email : null,  
+                  website : null,  
+                  alamat : null,  
+                  kodeWilayah : null,  
+                  kecamatan : null,  
+                  kabKota : null,  
+                  kodePos : null,  
+                  jenjang : null,  
+                  idSekolah : null,  
+                  npsn : null,  
+                  patrisipasiBos : null,  
+                  bank_nama : null,  
+                  rekening_nama : null,  
+                  rekening_no : null,  
+                  cabang_kcp : null,  
+                },
             }
           
         },
@@ -213,7 +244,44 @@
                         }
                     }
                 });
+            },
+            VClass(validation){
+                return {
+                        error: validation.$error,
+                        dirty: validation.$dirty
+                    }
+            },
+            submit(){
+                this.$v.$touch()
+                if (this.$v.$invalid) { 
+                    this.$noty.error(" Beberapa Field Masih Kosong", {
+                          killer: true,
+                          timeout: 2000,
+                          layout: 'center'
+                        })
+                }
             }
+        },
+        validations:{
+          sekolah:{
+                  nama : {required}, 
+                  status : {required},  
+                  email : {required},  
+//                  website : {required},  
+//                  alamat : {required},  
+//                  kodeWilayah : {required},  
+//                  kecamatan : {required},  
+//                  kabKota : {required},  
+//                  kodePos : {required},  
+//                  jenjang : {required},  
+//                  idSekolah : {required},  
+//                  npsn : {required},  
+//                  patrisipasiBos : {required},  
+//                  bank_nama : {required},  
+//                  rekening_nama : {required},  
+//                  rekening_no : {required},  
+//                  cabang_kcp : {required},  
+                },  
         },
         components:{
             Breadcums,
