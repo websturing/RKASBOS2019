@@ -27,10 +27,10 @@
                      <vue-xlsx-table @on-select-file="handleSelectedFile">
                        <b><i class="icon-upload7"></i></b>&nbsp; Import File Exel
                     </vue-xlsx-table>
-                    <button type="button" class="btn btn-sm btn-success btn-labeled btn-labeled-left">
+                    <router-link :to="{ name: 'SekolahForm'}" class="btn btn-sm btn-success btn-labeled btn-labeled-left">
                         <b><i class="icon-plus-circle2"></i></b> 
                         Tambah Data
-                    </button>
+                    </router-link>
                     <hr/>
                    <div class="card">
                        <div class="card-header header-elements-inline">

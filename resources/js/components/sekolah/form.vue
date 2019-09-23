@@ -29,37 +29,94 @@
                        <legend class="font-weight-bold">Data Sekolah</legend>
                        
                        <div class="form-group row">
-                           <div class="col-md-4">
-                                <label>Nama</label>
-                                <input type="text" class="form-control" placeholder="Nama Sekolah">
-                            </div>
-                             <div class="col-md-2">
-                                <label>Status</label>
-                                <select class="form-control" placeholder="Negri / Status">
-                                     <option value="">-- status --</option>
-                                     <option value="Negeri">Negri</option>
-                                     <option value="Swasta">Swasta</option>
-                                </select>
-                            </div>
-                             <div class="col-md-3">
-                                <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email Sekolah">
-                            </div>
+                            <div class="col-md-4">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" placeholder="Nama Sekolah">
+                                </div>
+                            <div class="col-md-2">
+                                    <label>Status</label>
+                                    <select class="form-control" placeholder="Negri / Status">
+                                         <option value="">-- status --</option>
+                                         <option value="Negeri">Negri</option>
+                                         <option value="Swasta">Swasta</option>
+                                    </select>
+                                </div>
                             <div class="col-md-3">
-                                <label>Website</label>
-                                <input type="text" class="form-control" placeholder="Website Sekolah">
-                            </div>
-                            
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" placeholder="Email Sekolah">
+                                </div>
+                            <div class="col-md-3">
+                                    <label>Website</label>
+                                    <input type="text" class="form-control" placeholder="Website Sekolah">
+                                </div>
                         </div>
-                        <div class="form-group">
-                          
+                       <div class="form-group row">
+                          <div class="col-md-4">
+                                <label>Alamat</label>
+                             <textarea class="form-control" placeholder="Alamat Sekolah"></textarea>
+                         </div>
+                        <div class="col-md-2">
+                                <label>Kode Wilayah</label>
+                             <input class="form-control" placeholder="Kode Wilayah Sekolah">
                         </div>
-                   </fieldset>
-                   <fieldset>
-                       <legend class="font-weight-bold">Wilayah</legend>
+                        <div class="col-md-2">
+                             <label>Kecamatan</label>
+                             <input class="form-control" placeholder="Kecamatan Sekolah">
+                        </div>
+                        <div class="col-md-2">
+                             <label>Kabupaten / Kota</label>
+                             <input class="form-control" placeholder="Kabupaten/Kota Sekolah">
+                        </div>
+                        <div class="col-md-2">
+                             <label>Kode Pos</label>
+                             <input class="form-control" placeholder="Kode Pos Sekolah">
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-2">
+                             <label>Jenjang</label>
+                             <select class="form-control">
+                                 <option value="">-== Jenjang ==-</option>
+                                 <option value="SD">SD</option>
+                                 <option value="SMP">SMP</option>
+                                 <option value="SMA">SMA</option>
+                                 <option value="SLB">SLB</option>
+                             </select>
+                        </div>
+                        <div class="col-md-2">
+                             <label>ID Sekolah</label>
+                             <input class="form-control" placeholder="ID Sekolah">
+                        </div>
+                        <div class="col-md-2">
+                             <label>NPSN</label>
+                             <input class="form-control" placeholder="NPSN Sekolah">
+                        </div>
+                        <div class="col-md-2">
+                             <label>Partisipasi Bos</label>
+                             <input class="form-control" placeholder="Partisipasi Sekolah">
+                        </div>
+                        </div>
                    </fieldset>
                    <fieldset>
                        <legend class="font-weight-bold">Bank</legend>
+                       <div class="form-group row">
+                          <div class="col-md-4">
+                             <label>Nama Bank</label>
+                             <input class="form-control" placeholder="Bank Sekolah">
+                         </div>
+                        <div class="col-md-2">
+                                <label>Nama Rekening</label>
+                             <input class="form-control" placeholder="Nama Rekening Sekolah">
+                        </div>
+                        <div class="col-md-2">
+                             <label>No Rekening</label>
+                             <input class="form-control" placeholder="Kecamatan Sekolah">
+                        </div>
+                        <div class="col-md-2">
+                             <label>Cabang KCP</label>
+                             <input class="form-control" placeholder="Kabupaten/Kota Sekolah">
+                        </div>
+                        </div>
                    </fieldset>
                    </div>
                    <div class="card-footer">
